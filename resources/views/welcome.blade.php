@@ -7,10 +7,11 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="csrf-token" content="{{ csrf_token() }}">
         <title>
-            Laravel Broadcast Redis Socket io
+            IoT Temperature Monitoring
         </title>
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.4.1/css/bootstrap.css" />
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
         <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     </head>
 
@@ -18,9 +19,10 @@
 
         <div class="container">
             <h1>
-                Laravel Broadcast Redis Socket io
+            IoT Temperature Monitoring
             </h1>
             <div id="notification"></div>
+            <div id="hello-react"></div>
             <div>
                 <div id="containerx">
                     @foreach ($dataAll as $data)
