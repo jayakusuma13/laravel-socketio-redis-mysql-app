@@ -9,21 +9,19 @@
         <title>
             IoT Temperature Monitoring
         </title>
+        <link href="dist/output.css" rel="stylesheet">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.4.1/css/bootstrap.css" />
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
         <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     </head>
 
     <body>
         <div id="navbar-component"></div>
-        <div class="container">
-            
-            <h1>
-            IoT Temperature Monitoring
-            </h1>
-            <div id="notification"></div>
-            <div id="hello-react"></div>
+        <div class="container ml-64">
+
+            <div id="line-chart"></div>
             <!--<div id="test-button"></div>-->
             <div id="existing-button"></div>
 

@@ -14,8 +14,8 @@ export default class ExistingButton extends Component {
     componentDidMount () {
         window.Echo.channel('laravel_database_user-channel').listen('.UserEvent', (data) => {
             $(".containery").append('<div>'+
-            '<Button type="button" class="btn btn-primary">'+data.title[0]+'</Button>'+
-            '<Button type="button" class="btn btn-primary">'+data.title[1]+'</Button>'+
+            '<button type="button" data-mdb-ripple="true" data-mdb-ripple-color="light" class="inline-block mx-2 my-2 px-4 py-4 bg-blue-600 text-white font-medium text-xl leading-tight uppercase rounded shadow-md hover:bg-blue-700 hover:shadow-lg focus:bg-blue-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg transition duration-150 ease-in-out">'+data.title[0]+'</button>'+
+            '<button type="button" data-mdb-ripple="true" data-mdb-ripple-color="light" class="inline-block mx-2 my-2 px-4 py-4 bg-blue-600 text-white font-medium text-xl leading-tight uppercase rounded shadow-md hover:bg-blue-700 hover:shadow-lg focus:bg-blue-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg transition duration-150 ease-in-out">'+data.title[1]+'</button>'+
             '</div>');
         });
     
@@ -28,8 +28,14 @@ export default class ExistingButton extends Component {
 
     renderData(item, index){
         return <div key={index}>
-            <Button type="button" class="btn btn-primary">{item.value1}</Button>
-            <Button type="button" class="btn btn-primary">{item.value2}</Button>
+            <button type="button"
+    data-mdb-ripple="true"
+    data-mdb-ripple-color="light"
+    class="inline-block mx-2 my-2 px-4 py-4 bg-blue-600 text-white font-medium text-xl leading-tight uppercase rounded shadow-md hover:bg-blue-700 hover:shadow-lg focus:bg-blue-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg transition duration-150 ease-in-out">{item.value1}</button>
+            <button type="button"
+    data-mdb-ripple="true"
+    data-mdb-ripple-color="light"
+    class="inline-block mx-2 my-2 px-4 py-4 bg-blue-600 text-white font-medium text-xl leading-tight uppercase rounded shadow-md hover:bg-blue-700 hover:shadow-lg focus:bg-blue-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg transition duration-150 ease-in-out">{item.value2}</button>
             </div>
             
     }
@@ -37,7 +43,6 @@ export default class ExistingButton extends Component {
     render () {
         return (
             <div className="containery">
-                <h1>ExistingButton</h1>
                 { this.state.projects.map(this.renderData) }
             </div>
         )
