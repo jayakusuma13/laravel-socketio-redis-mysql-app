@@ -18,6 +18,13 @@ class WelcomeController extends Controller
         return view('welcome',['dataAll'=>$dataAll]);
     }
 
+    public function getJson()
+    {
+        $dataAll = Data::all();
+        return $dataAll->toJson();
+        //return view('welcome', ['dataAll'=>$dataAll]);
+    }
+
     public function hit(Request $request)
     {
     event(new \App\Events\SendMessage($request->title));

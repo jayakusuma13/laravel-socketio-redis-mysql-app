@@ -16,19 +16,23 @@
     </head>
 
     <body>
-
+        <div id="navbar-component"></div>
         <div class="container">
+            
             <h1>
             IoT Temperature Monitoring
             </h1>
             <div id="notification"></div>
             <div id="hello-react"></div>
+            <!--<div id="test-button"></div>-->
+            <div id="existing-button"></div>
+
             <div>
-                <div id="containerx">
+                <!--<div id="containerx">
                     @foreach ($dataAll as $data)
                         <div>{{ $data->value1 }} {{ $data->value2 }}</div>
                     @endforeach
-                </div>
+                </div>-->
             </div>
         </div>
 
@@ -39,6 +43,7 @@
     </script>
     <script src="{{ env('LARAVEL_ECHO_HOSTNAME') }}/socket.io/socket.io.js" type="text/javascript"></script>
     <script src="{{ mix('js/app.js') }}" type="text/javascript"></script>
+    <!--
     <script type="text/javascript">
         //var i = 0;
         window.Echo.channel('laravel_database_user-channel').listen('.UserEvent', (data) => {
@@ -47,5 +52,5 @@
             $("#containerx").append('<div>'+data.title[0]+' '+data.title[1]+'</div>');
         });
     </script>
-
+    -->
 </html>
