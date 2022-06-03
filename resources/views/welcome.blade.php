@@ -22,7 +22,12 @@
         <div class="container ml-64">
 
             <div id="line-chart"></div>
-            <!--<div id="test-button"></div>-->
+
+            
+            <canvas id="chartBar" class="p-10"></canvas>
+            
+    
+            <!-- Item List Here -->
             <div id="existing-button"></div>
 
             <div>
@@ -41,14 +46,4 @@
     </script>
     <script src="{{ env('LARAVEL_ECHO_HOSTNAME') }}/socket.io/socket.io.js" type="text/javascript"></script>
     <script src="{{ mix('js/app.js') }}" type="text/javascript"></script>
-    <!--
-    <script type="text/javascript">
-        //var i = 0;
-        window.Echo.channel('laravel_database_user-channel').listen('.UserEvent', (data) => {
-            //i++;
-            //$("#notification").append('<div class="alert alert-success">'+i+'. '+data.title[0]+'</div>');
-            $("#containerx").append('<div>'+data.title[0]+' '+data.title[1]+'</div>');
-        });
-    </script>
-    -->
 </html>

@@ -17,6 +17,8 @@ window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
  */
 
  import 'tw-elements';
+ import 'chart.js';
+ import 'react-chartjs-2';
 
  import Echo from 'laravel-echo';
 

@@ -1,43 +1,105 @@
-import React from 'react';
+import React, { useEffect,useState } from 'react';
 import ReactDOM from 'react-dom';
-import Chart from 'chartjs';
+import axios from 'axios';
+import {Chart,
+    ArcElement,
+    LineElement,
+    BarElement,
+    PointElement,
+    BarController,
+    BubbleController,
+    DoughnutController,
+    LineController,
+    PieController,
+    PolarAreaController,
+    RadarController,
+    ScatterController,
+    CategoryScale,
+    LinearScale,
+    LogarithmicScale,
+    RadialLinearScale,
+    TimeScale,
+    TimeSeriesScale,
+    Decimation,
+    Filler,
+    Legend,
+    Title,
+    Tooltip,
+    SubTitle} from 'chart.js';
+//import { Chart } from 'react-chartjs-2';
 
-export default function LineChart(){
+Chart.register(
+    ArcElement,
+  LineElement,
+  BarElement,
+  PointElement,
+  BarController,
+  BubbleController,
+  DoughnutController,
+  LineController,
+  PieController,
+  PolarAreaController,
+  RadarController,
+  ScatterController,
+  CategoryScale,
+  LinearScale,
+  LogarithmicScale,
+  RadialLinearScale,
+  TimeScale,
+  TimeSeriesScale,
+  Decimation,
+  Filler,
+  Legend,
+  Title,
+  Tooltip,
+  SubTitle
+);
+
+export default function LineChart (){
+    //const [inc, setInc] = useState(0);
+    const projects = []
+
+    window.Echo.channel('laravel_database_user-channel').listen('.UserEvent', (data) => {
+        data = data.title[0]
+        const x = [0, 10, 5, 2, 20, 30, 45, 55, 99];
+        const y = [0, 10, 5, 2, 20, 30, 45, 55, 99];
+    })
     
-//Required chart.js
+    useEffect(()=>{
+        axios.get('/api/data').then(response => {        
+            
+            for(var i=0;i<=response.data.length;i++){
+                projects.push(response.data[i].value1)
+            }
+        })
+    },[])
 
-//Chart line
 
-  const labels = ["January", "February", "March", "April", "May", "June"];
-  const data = {
-    labels: labels,
-    datasets: [
-      {
-        label: "My First dataset",
-        backgroundColor: "hsl(252, 82.9%, 67.8%)",
-        borderColor: "hsl(252, 82.9%, 67.8%)",
-        data: [0, 10, 5, 2, 20, 30, 45],
-      },
-    ],
-  };
+    
+    const dataBarChart = {
+        labels: projects,
+        datasets: [
+        {
+            label: "My First dataset",
+            backgroundColor: "hsl(252, 82.9%, 67.8%)",
+            borderColor: "hsl(252, 82.9%, 67.8%)",
+            data: projects,
+        },
+        ],
+    };
 
-  const configLineChart = {
-    type: "line",
-    data,
-    options: {},
-  };
+    const configBarChart = {
+        type: "line",
+        data: dataBarChart,
+        options: {},
+    };
 
-  var chartLine = new Chart(
-    document.getElementById("chartLine"),
-    configLineChart
-  );
+    const chartBar = new Chart(
+        document.getElementById("chartBar"),
+        configBarChart
+    );
 
-    return(
-        <div class="shadow-lg rounded-lg overflow-hidden">
-            <div class="py-3 px-5 bg-gray-50">Line chart</div>
-            <canvas class="p-10" id="chartLine"></canvas>
-        </div>      
-    )
+
 }
 
 if (document.getElementById('line-chart')) {
