@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Data;
 use Illuminate\Http\Request;
+use League\CommonMark\Extension\Table\Table;
 
 class WelcomeController extends Controller
 {
@@ -15,6 +16,7 @@ class WelcomeController extends Controller
     public function index()
     {
         $dataAll = Data::all();
+        $dataValue1 = Data::get('value1');
         return view('welcome',['dataAll'=>$dataAll]);
     }
 

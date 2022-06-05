@@ -55,53 +55,82 @@ Chart.register(
   SubTitle
 );
 
-export default function LineChart (){
-    //const [inc, setInc] = useState(0);
-    const projects = []
+export default class LineChart extends React.Component (){  
+  state = {
+    persons: [],
+    projects: []
+  }
 
-    window.Echo.channel('laravel_database_user-channel').listen('.UserEvent', (data) => {
-        data = data.title[0]
-        const x = [0, 10, 5, 2, 20, 30, 45, 55, 99];
-        const y = [0, 10, 5, 2, 20, 30, 45, 55, 99];
-    })
-    
-    useEffect(()=>{
-        axios.get('/api/data').then(response => {        
-            
-            for(var i=0;i<=response.data.length;i++){
-                projects.push(response.data[i].value1)
-            }
-        })
-    },[])
+  componentDidMount(){
+    var ctx = $("#pie-chart");
+    axios.get('/api/data').then(response => {        
+      for(var key in response.data){
+          projects.push(response.data[key].value2)
+      }
 
-
-    
-    const dataBarChart = {
+      var data = {
         labels: projects,
         datasets: [
-        {
-            label: "My First dataset",
-            backgroundColor: "hsl(252, 82.9%, 67.8%)",
-            borderColor: "hsl(252, 82.9%, 67.8%)",
+          {
+            label: "Users Count",
             data: projects,
+            backgroundColor: [
+              "#DEB887",
+              "#A9A9A9",
+              "#DC143C",
+              "#F4A460",
+              "#2E8B57",
+              "#1D7A46",
+              "#CDA776",
+            ],
+            borderColor: [
+              "#CDA776",
+              "#989898",
+              "#CB252B",
+              "#E39371",
+              "#1D7A46",
+              "#F4A460",
+              "#CDA776",
+            ],
+            borderWidth: [1, 1, 1, 1, 1,1,1]
+          }
+        ]
+      };
+ 
+      //options
+      var options = {
+        responsive: true,
+        title: {
+          display: true,
+          position: "top",
+          text: "Last Week Registered Users -  Day Wise Count",
+          fontSize: 18,
+          fontColor: "#111"
         },
-        ],
-    };
+        legend: {
+          display: true,
+          position: "bottom",
+          labels: {
+            fontColor: "#333",
+            fontSize: 16
+          }
+        }
+      };
+ 
+      //create Pie Chart class object
+      var chart1 = new Chart(ctx, {
+        type: "bar",
+        data: data,
+        options: options
+      });
+      
+    })
+  }
 
-    const configBarChart = {
-        type: "line",
-        data: dataBarChart,
-        options: {},
-    };
-
-    const chartBar = new Chart(
-        document.getElementById("chartBar"),
-        configBarChart
-    );
 
 
 }
 
 if (document.getElementById('line-chart')) {
-    ReactDOM.render(<LineChart />, document.getElementById('line-chart'));
+    ReactDOM.render(<LineChart/> , document.getElementById('line-chart'));
 }
