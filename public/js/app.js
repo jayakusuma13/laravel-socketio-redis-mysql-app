@@ -2406,19 +2406,29 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_2__);
 /* harmony import */ var chart_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! chart.js */ "./node_modules/chart.js/dist/chart.esm.js");
 /* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
-function _createForOfIteratorHelper(o, allowArrayLike) { var it = typeof Symbol !== "undefined" && o[Symbol.iterator] || o["@@iterator"]; if (!it) { if (Array.isArray(o) || (it = _unsupportedIterableToArray(o)) || allowArrayLike && o && typeof o.length === "number") { if (it) o = it; var i = 0; var F = function F() {}; return { s: F, n: function n() { if (i >= o.length) return { done: true }; return { done: false, value: o[i++] }; }, e: function e(_e2) { throw _e2; }, f: F }; } throw new TypeError("Invalid attempt to iterate non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); } var normalCompletion = true, didErr = false, err; return { s: function s() { it = it.call(o); }, n: function n() { var step = it.next(); normalCompletion = step.done; return step; }, e: function e(_e3) { didErr = true; err = _e3; }, f: function f() { try { if (!normalCompletion && it["return"] != null) it["return"](); } finally { if (didErr) throw err; } } }; }
+function _typeof(obj) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (obj) { return typeof obj; } : function (obj) { return obj && "function" == typeof Symbol && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }, _typeof(obj); }
 
-function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
-function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
 
-function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); Object.defineProperty(Constructor, "prototype", { writable: false }); return Constructor; }
 
-function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); Object.defineProperty(subClass, "prototype", { writable: false }); if (superClass) _setPrototypeOf(subClass, superClass); }
 
-function _iterableToArrayLimit(arr, i) { var _i = arr == null ? null : typeof Symbol !== "undefined" && arr[Symbol.iterator] || arr["@@iterator"]; if (_i == null) return; var _arr = []; var _n = true; var _d = false; var _s, _e; try { for (_i = _i.call(arr); !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i["return"] != null) _i["return"](); } finally { if (_d) throw _e; } } return _arr; }
+function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf ? Object.setPrototypeOf.bind() : function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
 
-function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
+function _createSuper(Derived) { var hasNativeReflectConstruct = _isNativeReflectConstruct(); return function _createSuperInternal() { var Super = _getPrototypeOf(Derived), result; if (hasNativeReflectConstruct) { var NewTarget = _getPrototypeOf(this).constructor; result = Reflect.construct(Super, arguments, NewTarget); } else { result = Super.apply(this, arguments); } return _possibleConstructorReturn(this, result); }; }
+
+function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } else if (call !== void 0) { throw new TypeError("Derived constructors may only return object or undefined"); } return _assertThisInitialized(self); }
+
+function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
+
+function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Reflect.construct) return false; if (Reflect.construct.sham) return false; if (typeof Proxy === "function") return true; try { Boolean.prototype.valueOf.call(Reflect.construct(Boolean, [], function () {})); return true; } catch (e) { return false; } }
+
+function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf.bind() : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
 
 
@@ -2427,84 +2437,83 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 
 
 chart_js__WEBPACK_IMPORTED_MODULE_3__.Chart.register(chart_js__WEBPACK_IMPORTED_MODULE_3__.ArcElement, chart_js__WEBPACK_IMPORTED_MODULE_3__.LineElement, chart_js__WEBPACK_IMPORTED_MODULE_3__.BarElement, chart_js__WEBPACK_IMPORTED_MODULE_3__.PointElement, chart_js__WEBPACK_IMPORTED_MODULE_3__.BarController, chart_js__WEBPACK_IMPORTED_MODULE_3__.BubbleController, chart_js__WEBPACK_IMPORTED_MODULE_3__.DoughnutController, chart_js__WEBPACK_IMPORTED_MODULE_3__.LineController, chart_js__WEBPACK_IMPORTED_MODULE_3__.PieController, chart_js__WEBPACK_IMPORTED_MODULE_3__.PolarAreaController, chart_js__WEBPACK_IMPORTED_MODULE_3__.RadarController, chart_js__WEBPACK_IMPORTED_MODULE_3__.ScatterController, chart_js__WEBPACK_IMPORTED_MODULE_3__.CategoryScale, chart_js__WEBPACK_IMPORTED_MODULE_3__.LinearScale, chart_js__WEBPACK_IMPORTED_MODULE_3__.LogarithmicScale, chart_js__WEBPACK_IMPORTED_MODULE_3__.RadialLinearScale, chart_js__WEBPACK_IMPORTED_MODULE_3__.TimeScale, chart_js__WEBPACK_IMPORTED_MODULE_3__.TimeSeriesScale, chart_js__WEBPACK_IMPORTED_MODULE_3__.Decimation, chart_js__WEBPACK_IMPORTED_MODULE_3__.Filler, chart_js__WEBPACK_IMPORTED_MODULE_3__.Legend, chart_js__WEBPACK_IMPORTED_MODULE_3__.Title, chart_js__WEBPACK_IMPORTED_MODULE_3__.Tooltip, chart_js__WEBPACK_IMPORTED_MODULE_3__.SubTitle);
-function LineChart() {
-  var _useState = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)({}),
-      _useState2 = _slicedToArray(_useState, 2),
-      chartData = _useState2[0],
-      setChartData = _useState2[1];
 
-  var projects = [];
-  window.Echo.channel('laravel_database_user-channel').listen('.UserEvent', function (data) {
-    data = data.title[0];
-    var x = [0, 10, 5, 2, 20, 30, 45, 55, 99];
-    var y = [0, 10, 5, 2, 20, 30, 45, 55, 99];
-  });
-  axios__WEBPACK_IMPORTED_MODULE_2___default().get('/api/data').then(function (response) {
-    var _iterator = _createForOfIteratorHelper(response.data),
-        _step;
+var LineChart = /*#__PURE__*/function (_React$Component) {
+  _inherits(LineChart, _React$Component);
 
-    try {
-      for (_iterator.s(); !(_step = _iterator.n()).done;) {
-        var dataObj = _step.value;
-        projects.push(dataObj.value1);
-      }
-    } catch (err) {
-      _iterator.e(err);
-    } finally {
-      _iterator.f();
+  var _super = _createSuper(LineChart);
+
+  function LineChart() {
+    var _this;
+
+    _classCallCheck(this, LineChart);
+
+    for (var _len = arguments.length, args = new Array(_len), _key = 0; _key < _len; _key++) {
+      args[_key] = arguments[_key];
     }
-  });
-  (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(function () {
-    react_dom__WEBPACK_IMPORTED_MODULE_1__.render( /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
-      "class": "chart-container",
-      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
-        "class": "pie-chart-container",
-        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("canvas", {
-          id: "pie-chart"
-        })
-      })
-    }), document.getElementById('line-chart'));
-  }, []); //get the pie chart canvas
 
-  var cData = [0, 10, 5, 2, 20, 30, 45, 55, 99];
-  var ctx = $("#pie-chart"); //pie chart data
+    _this = _super.call.apply(_super, [this].concat(args));
 
-  var data = {
-    labels: cData,
-    datasets: [{
-      label: "Users Count",
-      data: cData,
-      backgroundColor: ["#DEB887", "#A9A9A9", "#DC143C", "#F4A460", "#2E8B57", "#1D7A46", "#CDA776"],
-      borderColor: ["#CDA776", "#989898", "#CB252B", "#E39371", "#1D7A46", "#F4A460", "#CDA776"],
-      borderWidth: [1, 1, 1, 1, 1, 1, 1]
-    }]
-  }; //options
+    _defineProperty(_assertThisInitialized(_this), "state", {
+      persons: [],
+      projects: []
+    });
 
-  var options = {
-    responsive: true,
-    title: {
-      display: true,
-      position: "top",
-      text: "Last Week Registered Users -  Day Wise Count",
-      fontSize: 18,
-      fontColor: "#111"
-    },
-    legend: {
-      display: true,
-      position: "bottom",
-      labels: {
-        fontColor: "#333",
-        fontSize: 16
-      }
+    return _this;
+  }
+
+  _createClass(LineChart, [{
+    key: "componentDidMount",
+    value: function componentDidMount() {
+      var ctx = $("#pie-chart");
+      axios__WEBPACK_IMPORTED_MODULE_2___default().get('/api/data').then(function (response) {
+        for (var key in response.data) {
+          projects.push(response.data[key].value2);
+        }
+
+        var data = {
+          labels: projects,
+          datasets: [{
+            label: "Users Count",
+            data: projects,
+            backgroundColor: ["#DEB887", "#A9A9A9", "#DC143C", "#F4A460", "#2E8B57", "#1D7A46", "#CDA776"],
+            borderColor: ["#CDA776", "#989898", "#CB252B", "#E39371", "#1D7A46", "#F4A460", "#CDA776"],
+            borderWidth: [1, 1, 1, 1, 1, 1, 1]
+          }]
+        }; //options
+
+        var options = {
+          responsive: true,
+          title: {
+            display: true,
+            position: "top",
+            text: "Last Week Registered Users -  Day Wise Count",
+            fontSize: 18,
+            fontColor: "#111"
+          },
+          legend: {
+            display: true,
+            position: "bottom",
+            labels: {
+              fontColor: "#333",
+              fontSize: 16
+            }
+          }
+        }; //create Pie Chart class object
+
+        var chart1 = new chart_js__WEBPACK_IMPORTED_MODULE_3__.Chart(ctx, {
+          type: "bar",
+          data: data,
+          options: options
+        });
+      });
     }
-  }; //create Pie Chart class object
+  }]);
 
-  var chart1 = new chart_js__WEBPACK_IMPORTED_MODULE_3__.Chart(ctx, {
-    type: "line",
-    data: data,
-    options: options
-  });
-}
+  return LineChart;
+}(react__WEBPACK_IMPORTED_MODULE_0___default().Component());
+
+
 
 if (document.getElementById('line-chart')) {
   react_dom__WEBPACK_IMPORTED_MODULE_1__.render( /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(LineChart, {}), document.getElementById('line-chart'));

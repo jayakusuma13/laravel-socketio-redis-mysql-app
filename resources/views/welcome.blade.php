@@ -52,11 +52,15 @@
       
   $(function(){
       //get the pie chart canvas
-        window.Echo.channel('laravel_database_user-channel').listen('.UserEvent', (data) => {
-          addData(25)
-        });
+        
 
-        function makeChart(pushVar){
+        function makeChart(){
+          window.Echo.channel('laravel_database_user-channel').listen('.UserEvent', (data) => {
+
+            chart1.data.datasets[0].data.push(data.title[0]);
+            chart1.update()
+          });
+        
           const query = <?php echo json_encode($dataAll); ?>;
           const projects = []
           
@@ -118,6 +122,13 @@
               }
             }
           };
+
+          function addData(data){
+            chart1.data.datasets.forEach((dataset) => {
+                dataset.data.push(data);
+            });
+            chart.update();
+          }
     
           //create Pie Chart class object
           var chart1 = new Chart(ctx, {
@@ -129,12 +140,7 @@
             
         makeChart()
 
-        function addData(data){
-          chart1.data.datasets.forEach((dataset) => {
-              dataset.data.push(data);
-          });
-          chart.update();
-        }
+        
     
   });
 </script>
